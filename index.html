@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicole's</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+        
+        *{
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background: linear-gradient(180deg, #9c3ed4, rgb(71, 29, 51)) no-repeat;
+            background-size: contain;
+            padding: 3rem 5rem 2.4rem;
+            color: white;
+           font-family: 'Open Sans', sans-serif;
+            text-align: center;
+        }
+        .launch-soon{
+            letter-spacing: 10px;
+            font-weight: 400;
+            font-size: 50px;
+            margin-bottom: 2rem;
+            /* text-align: center; */
+        }
+        .patience{
+            width: 53rem;
+            margin: auto;
+            letter-spacing: 0.1rem;
+            word-spacing: -0.03rem;
+        }
+        .live-in{
+            margin: 3rem 0rem 3rem -0.7rem;
+            letter-spacing: 0.1rem;
+            word-spacing: 0.01rem;
+        }
+
+        .counters{
+            display: flex;
+            align-items: center;
+            margin: 3rem auto 3rem 3rem;
+        }
+        .counter{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 2rem;
+            margin-right: 2rem;
+            margin-left: 2rem;
+        }
+        .counter p{
+            height: 11rem;
+            width: 8rem;
+            border-radius: 10px;
+            color: black;
+            background-color: #fff;
+            padding: 1rem;
+            align-content: center;
+            align-items: center;
+            align-self: center;
+            font-size: 100px;
+            font-weight: 500;
+        }
+        .colon{
+            font-size: 70px;
+            font-weight: 700;
+            color: #fcf5ff;
+        }
+        .time{
+            display: grid;
+            margin: -2rem 0 3rem 1.8rem;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 70rem;
+        }
+        .time p{
+            letter-spacing: 0.3rem;
+            font-size: larger;
+            margin-left: 1rem;
+        }
+        .sec{
+            margin-left: -4.5rem;
+
+        }
+        .min{
+            margin-left: -4rem;
+        }
+        input{
+            width: 53rem;
+            height: 3.2rem;
+            color: #fff;
+            position: relative;
+            outline: 0;
+            padding: 0 19.3rem 0 1rem;
+            border: none;
+            font-size: larger;
+            background-color: rgba(255, 255, 255, 0.31);
+        }
+
+        button{
+            height: 2.6rem;
+            margin: 0px 0 0 -18.515rem;
+            cursor: pointer;
+            background-color: #fff;
+            position: relative;
+            top: 0.07rem;
+            width: 18rem;
+            border: none;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        #demo{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="body">
+        <p class="launch-soon">WE LAUNCH SOON</p>
+        <p class="patience">Patience! We've worked with love to create a product that is just right for you and your skin. There is something for everyone.</p>
+        <p class="live-in">We are officially live in :</p>
+        <div class="counters">
+            <div class="counter counter1">
+                <p class="one1">1</p>
+                <p class="one2">1</p>
+            </div>
+            <p class="colon">:</p>
+            <div class="counter counter2">
+                <p class="two1">1</p>
+                <p class="two2">1</p>
+            </div>
+            <p class="colon">:</p>
+            <div class="counter counter3">
+                <p class="three1">1</p>
+                <p class="three2">1</p>
+            </div>
+        </div>
+        <div class="time">
+            <p>HOURS</p>
+            <p class="min">MINUTES</p>
+            <p class="sec">SECONDS</p>
+        </div>
+
+        <form action="">
+            <input type="text" name="" id="">
+            <button>
+                Subscribe
+            </button>            
+        </form>
+    </div>
+    <p id="demo"></p>
+
+<script>
+var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+console.log(countDownDate)
+let one1 = document.querySelector('.one1')
+let one2 = document.querySelector('.one2')
+let two1 = document.querySelector('.two1')
+let two2 = document.querySelector('.two2')
+let three1 = document.querySelector('.three1')
+let three2 = document.querySelector('.three2')
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    hours.toString()
+    minutes.toString()
+    seconds.toString()
+    
+  document.getElementById("demo").innerHTML = `${hours} ${minutes} ${seconds}`;
+  let demo = document.getElementById("demo");
+  one1.textContent = `${demo.textContent.slice(0,1)}`;
+  one2.textContent = `${demo.textContent.slice(1,2)}`;
+  two1.textContent = `${demo.textContent.slice(3,4)}`;
+  two2.textContent = `${demo.textContent.slice(4,5)}`;
+  three1.textContent = `${demo.textContent.slice(6,7)}`;
+  three2.textContent = `${demo.textContent.slice(7,8)}`;
+
+
+
+
+
+
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+</body>
+</html>
