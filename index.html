@@ -15,7 +15,7 @@
         body{
             background: linear-gradient(180deg, #9c3ed4, rgb(71, 29, 51)) no-repeat;
             background-size: contain;
-            padding: 3rem 5rem 2.4rem;
+            padding: 3rem 5rem 2.3rem;
             color: white;
            font-family: 'Open Sans', sans-serif;
             text-align: center;
@@ -112,9 +112,6 @@
             text-transform: uppercase;
         }
 
-        #demo{
-            display: none;
-        }
     </style>
 </head>
 <body>
@@ -151,50 +148,42 @@
             </button>            
         </form>
     </div>
-    <p id="demo"></p>
 
 <script>
-var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
-console.log(countDownDate)
-let one1 = document.querySelector('.one1')
-let one2 = document.querySelector('.one2')
-let two1 = document.querySelector('.two1')
-let two2 = document.querySelector('.two2')
-let three1 = document.querySelector('.three1')
-let three2 = document.querySelector('.three2')
-var x = setInterval(function() {
 
-  var now = new Date().getTime();
-  var distance = countDownDate - now;
 
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    hours.toString()
-    minutes.toString()
-    seconds.toString()
+const startTiming = 11.1866
+let time = startTiming * 60 * 60
+const count = document.getElementById('demo')
+const one1 = document.querySelector('.one1')
+const one2 = document.querySelector('.one2')
+const two1 = document.querySelector('.two1')
+const two2 = document.querySelector('.two2')
+const three1 = document.querySelector('.three1')
+const three2 = document.querySelector('.three2')
+
+setInterval(updateTimer, 1000)
+function updateTimer(){
+    const hours = Math.floor(time/3600)
+    const minutes = Math.floor(time / 60 % 60)
+    let seconds = time % 60
+    seconds = seconds < 10 ? '0' + seconds : seconds
+
+   
+    // count.innerHTML = `${hours} ${minutes} ${seconds}`
+    time--
+
+
+
+    one1.innerHTML = hours.toString().slice(0,1)
+    one2.innerHTML = hours.toString().slice(1,2)
+    two1.innerHTML = minutes.toString().slice(0,1)
+    two2.innerHTML = minutes.toString().slice(1,2)
+    three1.innerHTML = seconds.toString().slice(0,1)
+    three2.innerHTML = seconds.toString().slice(1,2)
     
-  document.getElementById("demo").innerHTML = `${hours} ${minutes} ${seconds}`;
-  let demo = document.getElementById("demo");
-  one1.textContent = `${demo.textContent.slice(0,1)}`;
-  one2.textContent = `${demo.textContent.slice(1,2)}`;
-  two1.textContent = `${demo.textContent.slice(3,4)}`;
-  two2.textContent = `${demo.textContent.slice(4,5)}`;
-  three1.textContent = `${demo.textContent.slice(6,7)}`;
-  three2.textContent = `${demo.textContent.slice(7,8)}`;
+}
 
-
-
-
-
-
-
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
 </script>
 </body>
 </html>
